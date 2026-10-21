@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="650" viewBox="0 0 1000 650" role="img" aria-labelledby="title desc">
+  <title id="title">ICX7150 firmware upgrade flow</title>
+  <desc id="desc">The used ICX7150 moved from FastIron 08.0.60T211 through 08.0.80f and then to 08.0.95s UFI. TFTP used an isolated PC adapter and final post-upgrade validation remains partly open.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#425466"/></marker>
+    <style>
+      .box{fill:#f5f8fc;stroke:#3d5a80;stroke-width:2;rx:12}
+      .warn{fill:#fff6e5;stroke:#b7791f;stroke-width:2;rx:12}
+      .title{font:700 21px sans-serif;fill:#172b4d}
+      .body{font:15px sans-serif;fill:#243b53}
+      .small{font:13px sans-serif;fill:#334e68}
+      .arrow{stroke:#425466;stroke-width:2.3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1000" height="650" fill="#ffffff"/>
+  <text x="500" y="38" text-anchor="middle" class="title">RUCKUS ICX7150-C12P firmware recovery</text>
+  <rect x="60" y="75" width="390" height="115" class="box"/>
+  <text x="255" y="105" text-anchor="middle" class="title">Baseline</text>
+  <text x="255" y="132" text-anchor="middle" class="body">FastIron 08.0.60T211</text>
+  <text x="255" y="155" text-anchor="middle" class="small">Saved pre-upgrade config; reset unknown setup</text>
+  <text x="255" y="175" text-anchor="middle" class="small">USB unrecognized, switched to TFTP</text>
+  <rect x="550" y="75" width="390" height="115" class="box"/>
+  <text x="745" y="105" text-anchor="middle" class="title">Isolated recovery network</text>
+  <text x="745" y="132" text-anchor="middle" class="body">PC / TFTP: 192.0.2.2/24</text>
+  <text x="745" y="155" text-anchor="middle" class="body">Switch: 192.0.2.3/24</text>
+  <text x="745" y="175" text-anchor="middle" class="small">Boot-monitor ping succeeded</text>
+  <path d="M450 132 H540" class="arrow"/>
+  <path d="M255 190 V220 H255 V235" class="arrow"/>
+  <rect x="60" y="240" width="390" height="110" class="box"/>
+  <text x="255" y="272" text-anchor="middle" class="title">Stage 1 · intermediate</text>
+  <text x="255" y="299" text-anchor="middle" class="body">SPS08080f.bin</text>
+  <text x="255" y="323" text-anchor="middle" class="body">Primary + secondary flash</text>
+  <text x="255" y="341" text-anchor="middle" class="small">Boot code mnz10114.bin updated</text>
+  <path d="M450 295 H540" class="arrow"/>
+  <rect x="550" y="240" width="390" height="110" class="box"/>
+  <text x="745" y="272" text-anchor="middle" class="title">Stage 2 · UFI release</text>
+  <text x="745" y="299" text-anchor="middle" class="body">SPS08095sufi.bin</text>
+  <text x="745" y="323" text-anchor="middle" class="body">Primary + secondary flash</text>
+  <text x="745" y="341" text-anchor="middle" class="small">Both bundles processed successfully</text>
+  <path d="M745 350 V383" class="arrow"/>
+  <rect x="550" y="390" width="390" height="105" class="box"/>
+  <text x="745" y="420" text-anchor="middle" class="title">Verified outcome</text>
+  <text x="745" y="447" text-anchor="middle" class="body">FastIron 08.0.95sT211 (UFI)</text>
+  <text x="745" y="470" text-anchor="middle" class="body">Uboot + image integrity: PASS</text>
+  <path d="M550 442 H500 V442 H450" class="arrow"/>
+  <rect x="60" y="390" width="390" height="105" class="warn"/>
+  <text x="255" y="420" text-anchor="middle" class="title">Open follow-ups</text>
+  <text x="255" y="447" text-anchor="middle" class="body">Boot-partition pairing warning</text>
+  <text x="255" y="470" text-anchor="middle" class="body">Login recovery + PoE load test</text>
+  <rect x="130" y="535" width="740" height="75" fill="#edf2f7" stroke="#829ab1" stroke-width="1.5" rx="10"/>
+  <text x="500" y="563" text-anchor="middle" class="body">Deployment target: Layer 2 switching + PoE</text>
+  <text x="500" y="587" text-anchor="middle" class="small">OPNsense remains responsible for routing, DHCP, firewall, and future VLAN gateways.</text>
+</svg>
